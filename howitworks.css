@@ -75,6 +75,10 @@ body {
              .navbar .btn-login:hover {
                 background: #f0f2f0;
                 }
+                .nav-links .active a {
+                    color: #ff6600; 
+                    font-weight: bold;
+                  }
 
 .section-container {
     display: flex;
