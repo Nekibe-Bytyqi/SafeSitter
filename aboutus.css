@@ -33,34 +33,28 @@ body{
     list-style: none; 
     display: flex; 
 }
-         .navbar .nav-links li
-          {
-            margin: 0 1rem; 
-           }
-           
-           .navbar .nav-links a 
-          {
-             text-decoration: none;
-             color: #2c2c2c; 
-             font-size: 1rem; 
-            }
-             .navbar .nav-links a:hover{
-              color :#ec7272;
-             }
-   
-           
-   
-           .navbar .btn-login { 
-            padding: 0.5rem 1rem;
-             background: #ec7272; 
-            
-             border-radius: 5px;
-              font-weight: bold;
-               transition: background 0.3s ease; 
-              } 
-              .navbar .btn-login:hover {
-                 background: #f0f2f0;
-                 } 
+.navbar .nav-links li
+{
+    margin: 0 1rem; 
+}
+.navbar .nav-links a {
+    text-decoration: none;
+    color: #2c2c2c; 
+    font-size: 1rem; 
+}
+.navbar .nav-links a:hover{
+    color :#ec7272;
+}
+.navbar .btn-login { 
+    padding: 0.5rem 1rem;
+    background: #ec7272; 
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease; 
+} 
+.navbar .btn-login:hover {
+    background: #f0f2f0;
+} 
   
   .nav-links .active a {
     color: #ff6600; 
