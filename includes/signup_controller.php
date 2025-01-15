@@ -75,6 +75,7 @@ function is_age_invalid(string $birthdate): bool {
 
 function create_nanny(object $pdo, string $firstname, string $lastname, string $email, string $password, string $country, string $city, string $birthdate) {
     set_nanny($pdo, $firstname, $lastname, $email, $password, $country, $city, $birthdate);
+
 }
 
 
