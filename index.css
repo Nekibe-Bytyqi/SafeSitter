@@ -383,8 +383,58 @@
                border-radius: 10px;
                object-fit: cover;
                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
-     
-  
+
+               .slider-container {
+                position: relative;
+                max-width: 100%;
+                overflow: hidden;
+              }
+              
+              .slider {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                width: 300%;
+              }
+              
+              .slide {
+                flex: 1 0 100%;
+                box-sizing: border-box;
+              }
+              
+              .slide img {
+                width: 100%; 
+                height: auto;
+                border-radius: 10px;
+                margin: 0 auto;
+                display: block;
+              }
+              
+              button.prev,
+              button.next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                padding: 10px;
+                cursor: pointer;
+                z-index: 1;
+              }
+              
+              button.prev {
+                left: 10px;
+              }
+              
+              button.next {
+                right: 10px;
+              }
+              
+              button:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+              }
+
               .footer {
                 background-color: #333; 
                
@@ -542,6 +592,24 @@
                                         .mission-images {
                                           justify-content: center;
                                         }
+
+                                        .slider {
+                                          width: 200%; 
+                                        }
+                                      
+                                        .slide {
+                                          flex: 1 0 50%; 
+                                        }
+                                      
+                                        .slide img {
+                                          width: 100%; 
+                                        }
+                                      
+                                        button.prev,
+                                        button.next {
+                                          padding: 8px; 
+                                        }
+                                      
                                       
                                        
                                         .footer-container {
@@ -555,6 +623,7 @@
                                           max-width: 400px;
                                         }
                                       }
+                                      
   
   
                                       @media (max-width: 480px) {
@@ -615,6 +684,24 @@
                                         .testimonial {
                                           padding: 1rem;
                                         }
+
+                                        slider {
+                                          width: 100%; 
+                                        }
+                                      
+                                        .slide {
+                                          flex: 1 0 100%; 
+                                        }
+                                      
+                                        .slide img {
+                                          width: 100%; 
+                                        }
+                                      
+                                        button.prev,
+                                        button.next {
+                                          padding: 6px; 
+                                        }
+                                      
                                       
                                        
                                         .footer {

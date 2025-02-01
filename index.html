@@ -19,8 +19,8 @@
                      <li class="active" ><a href="index.html">Home</a></li>
                       <li><a href="aboutus.html">About Us</a></li>
                       <li><a href="contactus.html">Contact Us</a></li>
-                       <li><a href="findananny.html">Find a Nanny</a></li>
-                       <li><a href="findajob.html">Find a Job</a></li>
+                       <li><a href="findananny.php">Find a Nanny</a></li>
+                       <li><a href="findajob.php">Find a Job</a></li>
                         <li><a href="howitworks.html">How It Works</a></li>
                          <li><a href="login.html" class="btn-login">Login</a></li>
                          </ul> </nav> </header>
@@ -30,8 +30,8 @@
                                     <h1 id="quote1">Find Your Perfect Childcare</h1> 
                                     <p>We connect families with trusted nannies who help your family thrive.</p> 
                                   <div id="button-container"> 
-                                    <a href="findananny.html"> <button class="button"  id="button1">FIND CHILD CARE</button></a>
-                                    <a href="findajob.html"><button class="button" id="button2">I'M A NANNY</button></a>
+                                    <a href="findananny.php"> <button class="button"  id="button1">FIND CHILD CARE</button></a>
+                                    <a href="findajob.php"><button class="button" id="button2">I'M A NANNY</button></a>
                                 </div>
                                  </div> 
                                 </section>
@@ -142,12 +142,15 @@
 
                                     </p>
                                 </div>
-                                <div class="mission-images">
-                                    <img src="images/family2.jpg" alt="Family " class="image">
-                                    <img src="images/family3.jpg" alt="Family " class="image">
-                                    <img src="images/Family1.jpg" alt="Family " class="image">
-                                    
-                                </div>
+                                <div class="mission-images slider-container">
+                                    <div class="slider">
+                                      <div class="slide"><img src="images/family2.jpg" alt="Family"></div>
+                                      <div class="slide"><img src="images/family3.jpg" alt="Family"></div>
+                                      <div class="slide"><img src="images/Family1.jpg" alt="Family"></div>
+                                    </div>
+                                    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                                    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+                                  </div>
 
 
                                </section>           
@@ -164,8 +167,8 @@
                             <ul> 
                                 <li>
                                     <a href="index.html">Home</a></li>
-                                     <li><a href="findananny.html">Hire a Nanny</a></li> 
-                                     <li><a href="findajob.html">Find a Job</a></li>
+                                     <li><a href="findananny.php">Hire a Nanny</a></li> 
+                                     <li><a href="findajob.php">Find a Job</a></li>
                                       <li><a href="howitworks.html">How It Works</a></li> 
                                       <li><a href="contactus.html">Contact Us</a></li> 
                                     </ul> 
@@ -194,7 +197,22 @@
                                     </div> </footer >    
                                             
                                             
-                                            
+                                    <script>
+                                        let currentSlide = 0;
+                                      
+                                        function moveSlide(direction) {
+                                          const slides = document.querySelectorAll(".slide");
+                                          const slider = document.querySelector(".slider");
+                                          const totalSlides = slides.length;
+                                      
+                                        
+                                          currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+                                      
+                                          
+                                          const offset = -currentSlide * 100; 
+                                          slider.style.transform = `translateX(${offset}%)`;
+                                        }
+                                      </script>
                                             
                                             
                                             </body> 
