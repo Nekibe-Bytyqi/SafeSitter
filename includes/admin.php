@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <h2>SaffeSitter</h2>
+            <h2>SafeSitter</h2>
             <ul>
                 <li><a href="adminnannies.php">Nanny Users List</a></li>
                 <li><a href="adminmsg.php">Contact Us Messages</a></li>
