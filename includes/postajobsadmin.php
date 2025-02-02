@@ -9,12 +9,12 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <h2>SaffeSitter</h2>
+            <h2>SafeSitter</h2>
             <ul>
                 <li><a href="admin.php">Parent Users List</a></li>
-                <li><a href="nannies.php">Nanny Users List</a></li>
+                <li><a href="adminnannies.php">Nanny Users List</a></li>
                 <li><a href="adminsmsg.php">Contact Us Messages</a></li>
-                <button><a href="index.html">Log Out</a></button>
+                <button><a href="../index.html">Log Out</a></button>
             </ul>
         </div>
 
@@ -24,7 +24,7 @@
             </header>
 
             <section class="user-list">
-                <h2>Parent Users List</h2>
+                <h2>Posted Jobs</h2>
                 <table>
                     <thead>
                         <tr>
