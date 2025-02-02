@@ -49,7 +49,7 @@ try{
 
    }
    create_parent( $pdo, $firstname,$lastname, $email, $password, $country, $city);
-   header ("Location: ../parentdashboard.php");
+   header ("Location: parentdashboard.php");
    $pdo=null;
    $stmt=null;
    die();
