@@ -9,12 +9,12 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <h2>SaffeSitter</h2>
+            <h2>SafeSitter</h2>
             <ul>
                 <li><a href="admin.php">Parent Users List</a></li>
                 <li><a href="adminmsg.php">Contact Us Messages</a></li>
                 <li><a href="postajobsadmin.php">Posted Jobs</a></li>
-                <button><a href="index.html">Log Out</a></button>
+                <button><a href="../index.html">Log Out</a></button>
             </ul>
         </div>
 
