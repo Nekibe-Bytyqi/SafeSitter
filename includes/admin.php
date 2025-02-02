@@ -14,7 +14,7 @@
                 <li><a href="adminnannies.php">Nanny Users List</a></li>
                 <li><a href="adminmsg.php">Contact Us Messages</a></li>
                 <li><a href="postajobsadmin.php">Posted Jobs</a></li>
-                <button><a href="index.html">Log Out</a></button>
+                <button><a href="../index.html">Log Out</a></button>
             </ul>
         </div>
 
