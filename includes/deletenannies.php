@@ -1,17 +1,15 @@
 <?php
-
 include('databasehandler.php');
 
-if (isset($_POST['nanny_id']) && !empty($_POST['nanny_id'])) {
-    $nanny_id = $_POST['nanny_id']; 
+if (isset($_POST['email']) && !empty($_POST['email'])) {
+    $email = $_POST['email']; 
 
     try {
         
-        $sql = "DELETE FROM nannies WHERE nanny_id = :nanny_id";  
+        $sql = "DELETE FROM nannies WHERE email = :email";  
         $stmt = $pdo->prepare($sql);
-
-       
-        $stmt->bindParam(':nanny_id', $nanny_id, PDO::PARAM_INT);
+    
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
 
         if ($stmt->execute()) {
             header("Location: adminnannies.php?message=Nanny+deleted+successfully");
@@ -23,7 +21,7 @@ if (isset($_POST['nanny_id']) && !empty($_POST['nanny_id'])) {
         echo "Error: " . $e->getMessage();
     }
 } else {
-    header("Location: adminnannies.php?message=No+nanny+selected+for+deletion");
+    header("Location: adminnannies.php?message=No+nanny+email+provided+for+deletion");
     exit;
 }
 ?>
