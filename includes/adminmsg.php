@@ -65,7 +65,7 @@
             <h2>SafeSitter</h2>
             <ul>
                 <li><a href="admin.php">Parent Users List</a></li>
-                <li><a href="nannies.php">Nanny Users List</a></li>
+                <li><a href="adminnannies.php">Nanny Users List</a></li>
                 <li><a href="postajobsadmin.php">Posted Jobs</a></li>
                 <button><a href="../index.html">Log Out</a></button>
             </ul>
