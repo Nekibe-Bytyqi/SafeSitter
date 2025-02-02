@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
     <link rel="stylesheet" href="login.css">
-    <script src="validation-login.js" defer></script>
+    <script src="validtion-login.js" ></script>
 </head>
 <body>
     <header class="navbar"> 
@@ -18,8 +18,9 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
-                <li><a href="findananny.html">Find a Nanny</a></li>
-                <li><a href="findajob.html">Find a Job</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="findananny.php">Find a Nanny</a></li>
+                <li><a href="findajob.php">Find a Job</a></li>
                 <li><a href="howitworks.html">How It Works</a></li>
                 <li class="active"><a href="login.html" class="login-btn">Login</a></li>
             </ul>
@@ -29,26 +30,24 @@
     <div class="container">
         <div class="login">
             <h2>Log In</h2>
-            <form id="form">
+            <form id="form"  action="includes/login.php" method="post">
                 <div class="inputi">
-                    <label for="username">Username</label>
-                       <input type="text" id="username" name="username" placeholder="Enter your username" required>
-                       <span class="error-message" id="username-error"></span> 
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    <span class="error-message" id="email-error"></span>
                 </div>  
                 <div class="inputi"> 
                     <label for="password">Password</label> 
                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
                        <span class="error-message" id="password-error"></span>
                        <button type="submit">Log In</button>
-                        <p class="Sign-Up">
-                            <label for="Dont have an account">Don't have an account?
-                            <a href="">Sign up</a> <!-- commit se nuk po i hapet kolegeve-->
-                            </label>
-                        </select>
-                        </p>
-                </p>
+                <div class="signup-text">Don't have an account?
+                    <a href="findananny.php">Sign up as a parent</a> <br>
+                    <a href="findajob.php">  Sign up as a nanny</a> 
                 </div>
+                
             </form>
+        </div>
         </div>
 
         <div class="welcome">
@@ -67,8 +66,8 @@
                     <ul> 
                         <li>
                             <a href="index.html">Home</a></li>
-                             <li><a href="findananny.html">Hire a Nanny</a></li> 
-                             <li><a href="findajob.html">Find a Job</a></li>
+                             <li><a href="findananny.php">Hire a Nanny</a></li> 
+                             <li><a href="findajob.php">Find a Job</a></li>
                              <li><a href="howitworks.html">How It Works</a></li> 
                              <li><a href="aboutus.html">About Us</a></li> 
                              <li><a href="contactus.html">Contact Us</a></li> 
@@ -87,15 +86,14 @@
                             <li><a href="instagram.com">Instagram</a></li> 
                             <li><a href="twitter.com">Twitter</a></li> 
                                      
-                    
-                        </ul> 
+                    </ul> 
             </div> 
-            
         </div> 
             <div class="footer-bottom"> 
-                <p>© 2024 SafeSitter. All rights reserved.| <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a>
+                <p>© 2024 SafeSitter. All rights reserved. | <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a>
                 </p> 
              </div> 
     </footer >
 </body>
 </html>
+
