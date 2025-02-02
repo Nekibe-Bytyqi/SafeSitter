@@ -1,7 +1,7 @@
 <?php
 include('databasehandler.php');
 
-$sql = "SELECT * FROM contact_us";
+$sql = "SELECT id, email, message FROM contact_us ORDER BY created_at DESC";
 $stmt = $pdo->query($sql);
 
 if ($stmt->rowCount() > 0) {
