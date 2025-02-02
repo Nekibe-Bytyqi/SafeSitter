@@ -63,7 +63,7 @@ try{
 
    }
    create_nanny( $pdo, $firstname,$lastname, $email, $password, $country, $city,$birthdate);
-   header ("Location: ../nannydashboard.php");
+   header ("Location: nannydashboard.php");
    $pdo=null;
    $stmt=null;
    die();
