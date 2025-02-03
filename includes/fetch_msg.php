@@ -1,7 +1,7 @@
 <?php
 include('databasehandler.php');
 
-$sql = "SELECT id, email, message FROM contact_us ORDER BY created_at DESC";
+$sql = "SELECT * FROM contact_us";
 $stmt = $pdo->query($sql);
 
 if ($stmt->rowCount() > 0) {
@@ -10,7 +10,6 @@ if ($stmt->rowCount() > 0) {
         $email = json_encode($row['email']);
         $message = json_encode($row['message']);
 
-      
         echo "<tr>
                 <td>" . htmlspecialchars($row['id']) . "</td>
                 <td><a href='javascript:void(0)' onclick='showMessage($email, $message)'>" . htmlspecialchars($row['email']) . "</a></td>
