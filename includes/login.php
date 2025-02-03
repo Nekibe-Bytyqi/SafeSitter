@@ -33,6 +33,10 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                 $_SESSION['user_id'] = $user['id']; 
                 $_SESSION['user_type'] = 'parent'; 
 
+
+                setcookie('user_id', $user['id'], time() + (7 * 24 * 60 * 60), '/'); 
+                setcookie('user_type', 'parent', time() + (7 * 24 * 60 * 60), '/');
+
                 header('Location: parentdashboard.php');
                 exit;
             } else {
@@ -52,6 +56,10 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                 if (password_verify($password, $user['password'])) {
                     $_SESSION['nanny_id'] = $user['nanny_id'];  
                     $_SESSION['user_type'] = 'nanny';  
+
+
+                    setcookie('user_id', $user['nanny_id'], time() + (7 * 24 * 60 * 60), '/'); 
+                    setcookie('user_type', 'nanny', time() + (7 * 24 * 60 * 60), '/');
 
                     header('Location: nannydashboard.php');
                     exit;

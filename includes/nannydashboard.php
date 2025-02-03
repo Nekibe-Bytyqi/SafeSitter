@@ -3,9 +3,14 @@ session_start();
 include('databasehandler.php');
 
 
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'nanny') {
-    header('Location: ../login.html');
-    exit;
+if (!isset($_SESSION['nanny_id']) || $_SESSION['user_type'] !== 'nanny') {
+    if (isset($_COOKIE['user_id']) && isset($_COOKIE['user_type'])) {
+        $_SESSION['nanny_id'] = $_COOKIE['user_id']; 
+        $_SESSION['user_type'] = $_COOKIE['user_type'];
+    } else {
+        header('Location: ../login.html');
+        exit;
+    }
 }
 
 $nanny_id = $_SESSION['nanny_id'];
@@ -37,6 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $update_stmt->bindParam(':city', $city, PDO::PARAM_STR);
     $update_stmt->bindParam(':nanny_id', $nanny_id, PDO::PARAM_INT);
     $update_stmt->execute();
+
+    setcookie('user_id', $nanny_id, time() + (86400 * 30), "/"); 
+    setcookie('user_type', 'nanny', time() + (86400 * 30), "/"); 
 
     header("Location: nannydashboard.php");
     exit;

@@ -3,8 +3,13 @@ session_start();
 include('databasehandler.php');
 
 if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'parent') {
-    header('Location: ../login.html');
-    exit;
+    if (isset($_COOKIE['user_id']) && isset($_COOKIE['user_type'])) {
+        $_SESSION['user_id'] = $_COOKIE['user_id'];
+        $_SESSION['user_type'] = $_COOKIE['user_type'];
+    } else {
+        header('Location: ../login.html');
+        exit;
+    }
 }
 
 $parent_id = $_SESSION['user_id'];
@@ -34,6 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $update_stmt->bindParam(':city', $city, PDO::PARAM_STR);
     $update_stmt->bindParam(':id', $parent_id, PDO::PARAM_INT);
     $update_stmt->execute();
+
+    setcookie('user_id', $parent_id, time() + (86400 * 30), "/");
+    setcookie('user_type', 'parent', time() + (86400 * 30), "/");
 
     header("Location: parentdashboard.php");
     exit;
@@ -196,33 +204,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 @media (max-width: 480px) {
-    body {
-        flex-direction: column;
-    }
+    
 
     .sidebar {
         width: 100%;
-        height: auto;
+        height: auto; 
         padding: 10px;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
+        position: relative; 
     }
 
-    .sidebar .logo-text {
-        margin-bottom: 0;
-    }
+    
 
-    .dashboard-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-    }
+   
 
     .content {
         padding: 70px 15px 15px;
