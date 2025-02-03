@@ -3,9 +3,14 @@ session_start();
 include('databasehandler.php');
 
 
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'nanny') {
-    header('Location: login.html');
-    exit;
+if (!isset($_SESSION['nanny_id']) || $_SESSION['user_type'] !== 'nanny') {
+    if (isset($_COOKIE['user_id']) && isset($_COOKIE['user_type'])) {
+        $_SESSION['nanny_id'] = $_COOKIE['user_id']; 
+        $_SESSION['user_type'] = $_COOKIE['user_type'];
+    } else {
+        header('Location: login.html');
+        exit;
+    }
 }
 
 
