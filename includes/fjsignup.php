@@ -63,6 +63,21 @@ try{
 
    }
    create_nanny( $pdo, $firstname,$lastname, $email, $password, $country, $city,$birthdate);
+
+   $query = "SELECT nanny_id FROM nannies WHERE email = :email";
+   $stmt = $pdo->prepare($query);
+   $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+   $stmt->execute();
+   $nanny = $stmt->fetch(PDO::FETCH_ASSOC);
+
+   if ($nanny) {
+       $nanny_id = $nanny['nanny_id'];
+
+       
+       setcookie('user_id', $nanny_id, time() + (86400 * 30), "/");
+       setcookie('user_type', 'nanny', time() + (86400 * 30), "/");
+   }
+
    header ("Location: nannydashboard.php");
    $pdo=null;
    $stmt=null;

@@ -49,6 +49,21 @@ try{
 
    }
    create_parent( $pdo, $firstname,$lastname, $email, $password, $country, $city);
+
+   $query = "SELECT id FROM parents WHERE email = :email";
+   $stmt = $pdo->prepare($query);
+   $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+   $stmt->execute();
+   $parent = $stmt->fetch(PDO::FETCH_ASSOC);
+
+   if ($parent) {
+       $parent_id = $parent['id'];
+
+       
+       setcookie('user_id', $parent_id, time() + (86400 * 30), "/");
+       setcookie('user_type', 'parent', time() + (86400 * 30), "/");
+   }
+
    header ("Location: parentdashboard.php");
    $pdo=null;
    $stmt=null;

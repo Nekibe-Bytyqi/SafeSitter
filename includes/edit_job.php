@@ -3,9 +3,16 @@ session_start();
 include('databasehandler.php');
 
 
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'parent') {
-    header('Location: ../login.html');
-    exit;
+if (!isset($_SESSION['user_id'])) {
+    if (isset($_COOKIE['user_id']) && isset($_COOKIE['user_type'])) {
+       
+        $_SESSION['user_id'] = $_COOKIE['user_id'];
+        $_SESSION['user_type'] = $_COOKIE['user_type'];
+    } else {
+        
+        header('Location: ../login.html');
+        exit;
+    }
 }
 
 $parent_id = $_SESSION['user_id'];

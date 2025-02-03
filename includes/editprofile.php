@@ -31,7 +31,6 @@ if (!$user) {
     exit;
 }
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_changes'])) {
     $firstName = $_POST['first_name'];
     $lastName = $_POST['last_name'];
@@ -47,7 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_changes'])) {
     $updateStmt->bindParam(':id', $userId, PDO::PARAM_INT);
 
     if ($updateStmt->execute()) {
-     
+      
+        setcookie('user_id', $userId, time() + (86400 * 30), "/"); 
+        setcookie('user_type', $_SESSION['user_type'], time() + (86400 * 30), "/");
+
         if ($_SESSION['user_type'] === 'parent') {
             header("Location: parentdashboard.php");
         } elseif ($_SESSION['user_type'] === 'nanny') {
@@ -59,21 +61,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_changes'])) {
     }
 }
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_profile'])) {
     $deleteQuery = "DELETE FROM $table WHERE $idField = :id";
     $deleteStmt = $pdo->prepare($deleteQuery);
     $deleteStmt->bindParam(':id', $userId, PDO::PARAM_INT);
 
     if ($deleteStmt->execute()) {
-        session_destroy(); 
-        header("Location: ../login.html"); 
+        session_destroy();
+
+      
+        setcookie('user_id', '', time() - 3600, "/"); 
+        setcookie('user_type', '', time() - 3600, "/"); 
+
+        header("Location: ../login.html");
         exit;
     } else {
         echo "Error deleting profile.";
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
